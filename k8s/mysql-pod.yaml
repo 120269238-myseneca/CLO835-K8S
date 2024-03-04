@@ -4,7 +4,6 @@ metadata:
   name: mysql
   labels:
     app: mysql
-    component: backend
 spec:
   containers:
     - name: mysql-server
@@ -12,6 +11,8 @@ spec:
       env:
           - name: MYSQL_ROOT_PASSWORD
             value: password
+          - name: MYSQL_DATABASE
+            value: employees
       ports:
         - containerPort: 3306
           protocol: TCP 
