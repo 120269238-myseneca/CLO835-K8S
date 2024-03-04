@@ -17,9 +17,7 @@ spec:
     spec:
       containers:
       - name: employee
-        ports:
-          - containerPort: 8080
-            protocol: TCP
+
         image: 494992235231.dkr.ecr.us-east-1.amazonaws.com/app-image-docker-assignment:v0.1
         env:
         - name: DBHOST
@@ -32,6 +30,9 @@ spec:
           value: employees
         - name: DBPORT
           value: "3306"
+        ports:
+          - containerPort: 8080
+            protocol: TCP
           
       imagePullSecrets:
         - name: secret-registry
