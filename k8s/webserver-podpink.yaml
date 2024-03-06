@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: employeeblue
+  name: employeepink
   labels:
-    app: employeeblue
+    app: employeepink
 spec:
   containers:
-  - name: employeeblue-app
+  - name: employeepink-app
     image: 494992235231.dkr.ecr.us-east-1.amazonaws.com/app-image-docker-assignment:v0.1 
     env:
     - name: DBHOST
@@ -20,7 +20,7 @@ spec:
     - name: DBPORT
       value: "3306"
     - name: APP_COLOR
-      value: blue
+      value: pink
     ports:
     - containerPort: 8080
       protocol: TCP

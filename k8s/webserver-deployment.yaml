@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employee
+  name: employeeblue
   labels:
-    app: employee
+    app: employeeblue
 spec:
   selector:
     matchLabels:
-        app: employee
+        app: employeeblue
   replicas: 1
   template:
     metadata:
       labels:
-        app: employee
+        app: employeeblue
     spec:
       containers:
-      - name: employee
+      - name: employeeblue
         image: 494992235231.dkr.ecr.us-east-1.amazonaws.com/app-image-docker-assignment:v0.1
         env:
         - name: DBHOST
@@ -28,6 +28,8 @@ spec:
           value: employees  
         - name: DBPORT
           value: "3306"
+        - name: APP_COLOR
+          value: blue
         ports:
         - containerPort: 8080
           protocol: TCP

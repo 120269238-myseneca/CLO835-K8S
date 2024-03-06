@@ -1,39 +1,37 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: employeeblue
+  name: employeepink
   labels:
-    app: employeeblue
+    app: employeepink
 spec:
-  replicas: 3
   selector:
     matchLabels:
-        app: employeeblue
-
+        app: employeepink
+  replicas: 1
   template:
     metadata:
       labels:
-        app: employeeblue
+        app: employeepink
     spec:
       containers:
-      - name: employeeblue
-        ports:
-          - containerPort: 8080
-            protocol: TCP
+      - name: employeepink
         image: 494992235231.dkr.ecr.us-east-1.amazonaws.com/app-image-docker-assignment:v0.1
         env:
         - name: DBHOST
-          value: mysql.mysql.svc.cluster.local  
+          value: mysql.mysql.svc.cluster.local 
         - name: DBUSER
           value: root
         - name: DBPWD
           value: password 
         - name: DATABASE
-          value: employees
+          value: employees  
         - name: DBPORT
           value: "3306"
         - name: APP_COLOR
           value: blue
-          
+        ports:
+        - containerPort: 8080
+          protocol: TCP
       imagePullSecrets:
         - name: secret-registry
