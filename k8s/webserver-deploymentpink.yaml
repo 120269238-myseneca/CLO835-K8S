@@ -17,6 +17,7 @@ spec:
       containers:
       - name: employeepink
         image: 494992235231.dkr.ecr.us-east-1.amazonaws.com/app-image-docker-assignment:v0.1
+        imagePullPolicy: Always
         env:
         - name: DBHOST
           value: mysql.mysql.svc.cluster.local 
@@ -29,7 +30,7 @@ spec:
         - name: DBPORT
           value: "3306"
         - name: APP_COLOR
-          value: blue
+          value: pink
         ports:
         - containerPort: 8080
           protocol: TCP

@@ -5,14 +5,14 @@ metadata:
   labels:
     app: mysql
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: mysql
+        app: mysql
   template:
     metadata:
       labels:
-        app: mysql
+          app: mysql
     spec:
       containers:
       - name: mysql-db
